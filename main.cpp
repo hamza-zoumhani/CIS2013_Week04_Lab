@@ -1,34 +1,32 @@
 #include <iostream>
 using namespace std;
 
-void guess(){
+
+bool guess(int num){
 	int guess = 0;
 	cout << "Guess a number between 1 and 1000: ";
 	cin >> guess;
 	
-	if(guess != number){
-		cout << "You guessed wrong... << endl;
+	if(guess != num){
+		cout << "You guessed wrong..." << endl;
 		return true;
-	} else{
+	} 
+	else{
 		return false;
 	}
 }
 
 
-
 int main(){
 	bool failed = true;
-	int number = 73;
 	int count = 0;
-	int g;
-	
+	int number = 73;
 	
 	while(failed){
 		count++;
-		failed = guess();
-		count++;
+		failed = guess(number);
 	}
-	
-	cout << "You guessed " << count << " times!" << endl;
+	cout << "You guessed right!" << endl;
+	cout << "It took you " << count << " times to get it right!" << endl;
 	return 0;
 }
