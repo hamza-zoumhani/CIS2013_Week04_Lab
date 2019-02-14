@@ -1,10 +1,15 @@
 #include <iostream>
 using namespace std;
 
-
-bool guess(int num){
-	int guess = 0;
+void printTitle(int n){
+	cout << "You have guessed " << n << " number of times!" << endl;
 	cout << "Guess a number between 1 and 1000: ";
+}
+
+bool guess(int num, int cnt){
+	int guess = 0;
+	
+	printTitle(cnt);
 	cin >> guess;
 	
 	if(guess != num){
@@ -17,14 +22,15 @@ bool guess(int num){
 }
 
 
+
 int main(){
 	bool failed = true;
 	int count = 0;
 	int number = 73;
 	
 	while(failed){
+		failed = guess(number, count);
 		count++;
-		failed = guess(number);
 	}
 	cout << "You guessed right!" << endl;
 	cout << "It took you " << count << " times to get it right!" << endl;
